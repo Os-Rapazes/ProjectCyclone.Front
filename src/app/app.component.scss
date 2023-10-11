@@ -1,0 +1,30 @@
+#toolbar-title-brand{
+    margin-left: 20px;
+}
+#toolbar-title-brand{
+    display: flex;
+}
+#links{
+    display: flex;
+    margin-left: 90px;
+    
+}
+#links h5{
+    margin-left: 10px;
+    font-size: 17px;
+}
+#links h5:hover{
+    color: #999;
+    cursor: pointer;
+}
+mat-toolbar{
+    background-color: #111111;
+    color: #fff;
+}
+table {
+    width: 100%;
+  }
+  
+.example-spacer {
+    flex: 1 1 auto;
+}

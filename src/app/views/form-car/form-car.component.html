@@ -1,0 +1,35 @@
+<div id="form-container">
+    <form [formGroup]="formCar">
+        <div id="fields-container">
+            <mat-form-field appearance="outline">
+                <mat-label>Placa</mat-label>
+                <input formControlName="plate" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Cor</mat-label>
+                <mat-select formControlName="colorId">
+                    <mat-option *ngFor="let color of colors" [value]="color.colorId">{{color.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Modelo</mat-label>
+                <input formControlName="model" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Marca</mat-label>
+                <input formControlName="brand" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Preço</mat-label>
+                <input type="number" formControlName="price" matInput placeholder="">
+            </mat-form-field>
+            <button *ngIf="!isEditing" (click)="confirmRegisterCar()" [disabled]="!formCar.valid" mat-raised-button color="primary">Registrar
+                Carro</button>
+            <button *ngIf="isEditing" (click)="updateCar()" [disabled]="!formCar.valid" mat-raised-button color="primary">Salvar Carro</button>
+        </div>
+    </form>
+</div>

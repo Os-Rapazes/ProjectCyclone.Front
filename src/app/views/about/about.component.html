@@ -1,0 +1,16 @@
+<div id="about-container">
+    <div id="about-content">
+        <mat-card class="example-card mat-elevation-z12" *ngFor="let prt of participants">
+            <mat-card-header>
+                <mat-card-title>{{prt.name}}</mat-card-title>
+                <mat-card-subtitle>{{prt.role}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="'/assets/'+prt.fotoPath" alt="Photo Gustavo">
+            <mat-card-content>
+                <p>
+                    {{prt.description}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
