@@ -12,7 +12,9 @@ import { FormCarComponent } from './views/form-car/form-car.component';
 import { ViewCarsComponent } from './views/view-cars/view-cars.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './views/about/about.component';
-import { DetailsComponent } from './views/details/details.component';
+import { FormClientComponent } from './views/form-client/form-client.component';
+import { ViewClientsComponent } from './views/view-clients/view-clients.component';
+import { CustomMessageComponent } from './components/custom-message/custom-message.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DetailsComponent } from './views/details/details.component';
     FormCarComponent,
     ViewCarsComponent,
     AboutComponent,
-    DetailsComponent
+    FormClientComponent,
+    ViewClientsComponent,
+    CustomMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { DetailsComponent } from './views/details/details.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
     exports:[
@@ -19,7 +21,9 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/mater
         MatInputModule,
         MatButtonModule,
         MatSelectModule,
-        MatCardModule
+        MatCardModule,
+        NgxMatSelectSearchModule,
+        MatSnackBarModule
     ]
 })
 export default class MaterialModule{}

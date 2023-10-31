@@ -1,0 +1,28 @@
+<div id="form-container">
+    <form [formGroup]="formClient">
+        <div id="fields-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input formControlName="firstName" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Sobrenome</mat-label>
+                <input formControlName="lastName" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cpf</mat-label>
+                <input maxlength="11" formControlName="cpf" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Rg</mat-label>
+                <input maxlength="9" formControlName="rg" matInput placeholder="">
+            </mat-form-field>
+            <button  (click)="confirmRegisterClient()" [disabled]="!formClient.valid" mat-raised-button>Registrar Cliente</button>
+            <!-- <button *ngIf="isEditing" (click)="updateCar()" [disabled]="!formCar.valid" mat-raised-button
+                color="primary">Salvar Carro</button> -->
+        </div>
+    </form>
+</div>

@@ -12,15 +12,26 @@
 #links h5{
     margin-left: 10px;
     font-size: 17px;
+    transition: 1s;
 }
 #links h5:hover{
-    color: #999;
+    color: #ddd;
     cursor: pointer;
+   font-size: 19px;
 }
 mat-toolbar{
-    background-color: #111111;
+    background-color: #960E0E;
+    height: 15vh;
     color: #fff;
+    padding: 20px 20px;
 }
+mat-toolbar img{
+    width: 23vh ;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
 table {
     width: 100%;
   }

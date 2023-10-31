@@ -6,9 +6,8 @@ import { Color } from "../models/color.model";
 
 @Injectable()
 export default class ColorService{
-    constructor(
-        private readonly http : HttpClient
-    ){}
+    constructor(private readonly http : HttpClient){}
+    
     public getAllColors(): Observable<Color[]>{
         return this.http.get<Color[]>(`${environment.API}/Colors`)
     }

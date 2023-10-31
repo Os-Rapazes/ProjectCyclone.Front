@@ -1,3 +1,4 @@
+import { Client } from "./client.model"
 import { Color } from "./color.model"
 
 export interface Car{
@@ -8,6 +9,8 @@ export interface Car{
     model: string
     brand: string
     price: number
+    clientId : string
+    client : Client
 }
 
 export interface CarRegister{ 
@@ -17,4 +20,5 @@ export interface CarRegister{
     model: string
     brand: string
     price: number
+    clientId : string
 }

@@ -12,7 +12,7 @@ import CarService from 'src/app/services/car.service';
 export class ViewCarsComponent implements OnInit {
   public cars !: Observable<Car[]>
 
-  public displayedColumns: string[] = ['plate' ,'colorName' ,'model', 'brand' ,'price', 'actions'];
+  public displayedColumns: string[] = ['client','plate' ,'colorName' ,'model', 'brand' ,'price', 'actions'];
 
   constructor(
     private readonly carService : CarService
@@ -23,8 +23,9 @@ export class ViewCarsComponent implements OnInit {
   }
 
   public confirmDeleteCar(id : string){
-    this.carService.deleteCar(id).subscribe()
-    this.loadCars()
+    this.carService.deleteCar(id)
+    .subscribe(() => this.loadCars())
+
   }
 
   private loadCars(){
