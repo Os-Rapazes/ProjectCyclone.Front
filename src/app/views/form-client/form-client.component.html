@@ -20,9 +20,8 @@
                 <mat-label>Rg</mat-label>
                 <input maxlength="9" formControlName="rg" matInput placeholder="">
             </mat-form-field>
-            <button  (click)="confirmRegisterClient()" [disabled]="!formClient.valid" mat-raised-button>Registrar Cliente</button>
-            <!-- <button *ngIf="isEditing" (click)="updateCar()" [disabled]="!formCar.valid" mat-raised-button
-                color="primary">Salvar Carro</button> -->
+            <button *ngIf="!isEditing" (click)="confirmRegisterClient()" [disabled]="!formClient.valid" mat-raised-button color="warn">Registrar Cliente</button>
+            <button *ngIf="isEditing" (click)="updateClient()" [disabled]="!formClient.valid" mat-raised-button color="warn">Salvar Cliente</button>
         </div>
     </form>
 </div>

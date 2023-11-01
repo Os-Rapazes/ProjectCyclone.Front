@@ -10,11 +10,13 @@ import MaterialModule from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormCarComponent } from './views/form-car/form-car.component';
 import { ViewCarsComponent } from './views/view-cars/view-cars.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './views/about/about.component';
 import { FormClientComponent } from './views/form-client/form-client.component';
 import { ViewClientsComponent } from './views/view-clients/view-clients.component';
 import { CustomMessageComponent } from './components/custom-message/custom-message.component';
+import { CpfPipe } from './utils/pipes/cpf.pipe';
+import { RgPipe } from './utils/pipes/rg.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CustomMessageComponent } from './components/custom-message/custom-messa
     FormClientComponent,
     ViewClientsComponent,
     CustomMessageComponent,
+    CpfPipe,
+    RgPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { CustomMessageComponent } from './components/custom-message/custom-messa
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

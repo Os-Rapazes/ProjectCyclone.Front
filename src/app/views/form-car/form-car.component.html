@@ -6,10 +6,10 @@
                 <mat-label>Client</mat-label>
                 <mat-select formControlName="clientId">
                     <mat-option>
-                        <ngx-mat-select-search max #cpf (input)="filterClientsByCpf(cpf.value)" placeholderLabel="Cpf do cliente"
-                         noEntriesFoundLabel="Nenhum cliente encontrado com esse cpf"></ngx-mat-select-search>
+                        <ngx-mat-select-search #name (input)="filterClientsByCpf(name.value)" placeholderLabel="Nome do cliente"
+                         noEntriesFoundLabel="Nenhum cliente encontrado com esse nome"></ngx-mat-select-search>
                     </mat-option>
-                    <mat-option *ngFor="let client of clients | async" [value]="client.clientId">{{client.firstName}} {{client.lastName}}</mat-option>
+                    <mat-option *ngFor="let client of clients | async" [value]="client.clientId">{{client.firstName}} {{client.lastName}} - {{client.cpf | cpf}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -39,10 +39,10 @@
                 <mat-label>Preço</mat-label>
                 <input type="number" formControlName="price" matInput placeholder="">
             </mat-form-field>
-            <button id="button-form" *ngIf="!isEditing" (click)="confirmRegisterCar()" [disabled]="!formCar.valid" mat-raised-button
+            <button color="warn"  id="button-form" *ngIf="!isEditing" (click)="confirmRegisterCar()" [disabled]="!formCar.valid" mat-raised-button
                 >Registrar
                 Carro</button>
-            <button id="button-form" *ngIf="isEditing" (click)="updateCar()" [disabled]="!formCar.valid" mat-raised-button
+            <button color="warn" id="button-form" *ngIf="isEditing" (click)="updateCar()" [disabled]="!formCar.valid" mat-raised-button
                 >Salvar Carro</button>
         </div>
     </form>

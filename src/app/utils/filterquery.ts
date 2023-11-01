@@ -1,11 +1,12 @@
 export default class FilterQueryMount{
-    private static readonly baseFilterQuery = '?$filter'
     
-    public static filterEqual(field: string, param: string): string {
-        return `${this.baseFilterQuery}=${field} eq '${param}'`
+    public static filterEqual(field: string, param: any): any  {
+        if(typeof(param) == 'string') return `${field} eq '${param}'`
+        if(typeof(param) != 'string') return `${field} eq ${param}`
+        
     }
     public static filterContains(field: string, param: string): string {
-        return `${this.baseFilterQuery}=contains(${field},'${param}')`
+        return `contains(tolower(${field}),tolower('${param}'))`
     }
     
 }

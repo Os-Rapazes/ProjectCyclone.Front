@@ -54,7 +54,11 @@ export class FormCarComponent implements OnInit {
 
   public confirmRegisterCar() {
     const car: CarRegister = this.formCar.value
-    this.carService.postCar(car).subscribe((car) => console.log(car));
+    this.carService.postCar(car).subscribe({
+      next: _ => this.messageService.showMessage("Carro registratdo com sucesso",
+        "success", true, "/view-cars"),
+      error: _ => this.messageService.showMessage("Falha ao registrar carro, verifique as informações e tente novamente", "error", false)
+    });
 
   }
 
@@ -63,12 +67,12 @@ export class FormCarComponent implements OnInit {
     this.carService.putCar(car).subscribe({
       next: _ => this.messageService.showMessage("Informações do carro atualizadas com sucesso",
         "success", true, "/view-cars"),
-      error: _ => this.messageService.showMessage("Falha ao atualizar carro, verifique as informações", "error",false)
+      error: _ => this.messageService.showMessage("Falha ao atualizar carro, verifique as informações", "error", false)
     })
   }
 
-  public filterClientsByCpf(cpf: string) {
-    this.clients = this.clientService.getClientFilteringByCpf(cpf)
+  public filterClientsByCpf(name: string) {
+    this.clients = this.clientService.getClientFilteringByName(name)
   }
 
   private loadFormCarToEdit() {

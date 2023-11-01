@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
     exports:[
@@ -23,7 +24,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatSelectModule,
         MatCardModule,
         NgxMatSelectSearchModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatSlideToggleModule
     ]
 })
 export default class MaterialModule{}
