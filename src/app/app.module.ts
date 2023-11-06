@@ -17,6 +17,7 @@ import { ViewClientsComponent } from './views/view-clients/view-clients.componen
 import { CustomMessageComponent } from './components/custom-message/custom-message.component';
 import { CpfPipe } from './utils/pipes/cpf.pipe';
 import { RgPipe } from './utils/pipes/rg.pipe';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RgPipe } from './utils/pipes/rg.pipe';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

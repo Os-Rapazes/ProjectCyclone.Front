@@ -10,18 +10,18 @@ export default class CarService{
         private readonly http : HttpClient
     ){}
     public getAllCars(): Observable<Car[]>{
-        return this.http.get<Car[]>(`${environment.API}/Cars`)
+        return this.http.get<Car[]>(`${environment().API}/Cars`)
     }
     public getCarById(id : string): Observable<Car>{
-        return this.http.get<Car>(`${environment.API}/Cars/${id}`)
+        return this.http.get<Car>(`${environment().API}/Cars/${id}`)
     }
     public postCar(car : CarRegister) : Observable<Car>{
-        return this.http.post<Car>(`${environment.API}/Cars`, car)
+        return this.http.post<Car>(`${environment().API}/Cars`, car)
     }
     public putCar(car : Car) : Observable<Car>{
-        return this.http.put<Car>(`${environment.API}/Cars`, car)
+        return this.http.put<Car>(`${environment().API}/Cars`, car)
     }
     public deleteCar(id : string) : Observable<void>{
-        return this.http.delete<void>(`${environment.API}/Cars/${id}`)
+        return this.http.delete<void>(`${environment().API}/Cars/${id}`)
     }
 }

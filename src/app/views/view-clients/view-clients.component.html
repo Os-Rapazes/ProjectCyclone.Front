@@ -37,4 +37,10 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <br>
+    <br>
+    <br>
+    <h1 id="table-title">Estatísticas Clientes</h1>
+    <div  class="mat-elevation-z4" [chart]="pieChart"></div>
+
 </div>
