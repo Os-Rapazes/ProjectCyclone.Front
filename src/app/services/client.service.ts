@@ -16,9 +16,9 @@ export default class ClientService {
   public getClientsByState(state: boolean): Observable<Client[]> {
     return this.http.get<Client[]>(`${environment().API}/Clients?$filter=${FilterQueryMount.filterEqual('State', state)}`)
   }
-  
-  public getClientsByStateCount(state: boolean): Observable<Client[]> {
-    return this.http.get<Client[]>(`${environment().API}/Clients?$filter=${FilterQueryMount.filterEqual('State', state)}`)
+
+  public getClientsByStateCount(state: boolean): Observable<number> {
+    return this.http.get<number>(`${environment().API}/Clients/count?state=${state}`)
   }
 
   public getClientById(id: string): Observable<Client> {
@@ -39,10 +39,10 @@ export default class ClientService {
     return this.http.put<Client>(`${environment().API}/Clients`, client)
   }
   public deactiveClient(clientId: string): Observable<void> {
-    return this.http.patch<void>(`${environment().API}/Clients/DeactiveClient/${clientId}`, {})
+    return this.http.patch<void>(`${environment().API}/Clients/deactiveClient/${clientId}`, {})
   }
   public activeClient(clientId: string): Observable<void> {
-    return this.http.patch<void>(`${environment().API}/Clients/ActiveClient/${clientId}`, {})
+    return this.http.patch<void>(`${environment().API}/Clients/activeClient/${clientId}`, {})
   }
 
 }
