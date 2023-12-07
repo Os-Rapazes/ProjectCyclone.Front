@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { Car, CarRegister } from 'src/app/models/car.model';
 import { Client } from 'src/app/models/client.model';
 import { Color } from 'src/app/models/color.model';
@@ -20,7 +20,7 @@ export class FormCarComponent implements OnInit {
 
   public isEditing: boolean = false
   public colors: Color[] = []
-  public clients?: Observable<Client[]>
+  public clients !: Observable<Client[]>
 
   public formCar: FormGroup = new FormGroup({
     plate: new FormControl(undefined, [Validators.required, Validators.minLength(7), Validators.maxLength(7)]),
@@ -32,6 +32,8 @@ export class FormCarComponent implements OnInit {
   })
 
   private idEditing?: string
+
+  private readonly searchSubject = new Subject<string>();
 
   constructor(
     private readonly carService: CarService,
@@ -50,6 +52,13 @@ export class FormCarComponent implements OnInit {
       this.isEditing = false
     }
     this.colorService.getAllColors().subscribe((colors) => this.colors = colors)
+
+
+    this.clients = this.searchSubject.pipe(
+      debounceTime(1100),
+      distinctUntilChanged(),
+      switchMap((name) => this.clientService.getClientFilteringByName(name))
+    )
   }
 
   public confirmRegisterCar() {
@@ -71,8 +80,9 @@ export class FormCarComponent implements OnInit {
     })
   }
 
-  public filterClientsByCpf(name: string) {
-    this.clients = this.clientService.getClientFilteringByName(name)
+  public filterClientsByCpf(name: string) {    
+    this.searchSubject.next(name.trim());
+
   }
 
   private loadFormCarToEdit() {
